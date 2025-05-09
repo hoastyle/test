@@ -1,0 +1,1117 @@
+.
+├── 0001-perf-apply-optimized-ld-gold-or-lld.patch
+├── app
+│   ├── CMakeLists.txt
+│   ├── Crane.cpp
+│   └── Monitor.cpp
+├── build
+│   ├── Debug
+│   │   ├── app
+│   │   ├── CMakeCache.txt
+│   │   ├── CMakeFiles
+│   │   ├── cmake_install.cmake
+│   │   ├── detect_cuda_compute_capabilities.cpp
+│   │   ├── detect_cuda_version.cc
+│   │   ├── install
+│   │   ├── Makefile
+│   │   ├── mode.cmake
+│   │   ├── run.log
+│   │   ├── server
+│   │   ├── src
+│   │   ├── test
+│   │   └── tool
+│   ├── install -> /home/hao/Workspace/MM/gitlab_iCrane/build/Debug/install
+│   ├── project.sh
+│   ├── tests.cmake
+│   └── tools.cmake
+├── build.config
+├── build.config.example
+├── cmake
+│   ├── FindCSparse.cmake
+│   ├── FindEigen3.cmake
+│   ├── FindG2O.cmake
+│   └── ModuleUtil.cmake
+├── CMakeLists.txt
+├── compileFull.sh
+├── compileLite.sh -> compile.sh
+├── compile.sh
+├── cscope.in.out
+├── cscope.out
+├── cscope.po.out
+├── datasets
+│   ├── container
+│   │   ├── 3_1569841382207.bmp
+│   │   ├── 4_1569841382418.bmp
+│   │   ├── 5_1569841382632.bmp
+│   │   ├── 6_1569841382848.bmp
+│   │   ├── 7_1569841383062.bmp
+│   │   ├── 8_1569841383272.bmp
+│   │   └── 9_1569841383482.bmp
+│   ├── cyMarkerH
+│   │   ├── 2293674433-color-207000102613_1.jpg
+│   │   ├── 2304039299-color-207000102613_1.jpg
+│   │   ├── 2359615327-color-207000102613_1.jpg
+│   │   ├── 4647637482-color-207000102613_3.jpg
+│   │   ├── 4652851709-color-207000102613_1.jpg
+│   │   ├── 5152161740-color-207000102613_1.jpg
+│   │   ├── 5256576774-color-207000102613_1.jpg
+│   │   ├── 5344556108-color-207000102613_1.jpg
+│   │   ├── 7302515454-color-207000102613_1.jpg
+│   │   ├── 7312227033-color-207000102613_1.jpg
+│   │   ├── 7484603288-color-207000102613_1.jpg
+│   │   ├── 7506669053-color-207000102613_1.jpg
+│   │   ├── 8068289361-color-207000102613_3.jpg
+│   │   ├── template_0.jpg
+│   │   ├── template_1.jpg
+│   │   ├── template_2.jpg
+│   │   ├── template_3.jpg
+│   │   └── template.jpg
+│   ├── gcp_noise
+│   │   ├── 1.pcd
+│   │   ├── 2.pcd
+│   │   └── 3.pcd
+│   ├── KFilter
+│   │   ├── output.csv
+│   │   └── Simulation.txt
+│   ├── lane
+│   │   ├── 10.jpg
+│   │   ├── 11.jpg
+│   │   ├── 12.jpg
+│   │   ├── 13.jpg
+│   │   ├── 14.jpg
+│   │   ├── 15.jpg
+│   │   ├── 16.jpg
+│   │   ├── 17.jpg
+│   │   ├── 18.jpg
+│   │   ├── 19.jpg
+│   │   ├── 1.jpg
+│   │   ├── 20.jpg
+│   │   ├── 21.jpg
+│   │   ├── 22.jpg
+│   │   ├── 23.jpg
+│   │   ├── 24.jpg
+│   │   ├── 2.jpg
+│   │   ├── 3.jpg
+│   │   ├── 5.jpg
+│   │   ├── 6.jpg
+│   │   ├── 7.jpg
+│   │   ├── 8.jpg
+│   │   └── 9.jpg
+│   ├── pcd
+│   │   ├── source.pcd
+│   │   ├── target.pcd
+│   │   └── testpcd
+│   └── unit
+│       ├── linearCntrDetector
+│       ├── lineParser
+│       ├── livox_no_occlusion.pcd
+│       ├── quanergy_no_occlusion.pcd
+│       └── quanergy_occlusion.pcd
+├── doc
+│   ├── BuildCodeBKM.md
+│   ├── CodeStyle.md
+│   ├── DebugBKM.md
+│   ├── ModuleAdditionGuide.md
+│   ├── NetworkSecurity
+│   ├── RunInDocker.md
+│   └── TruckLiDARCalibration.md
+├── download.cmake
+├── Doxyfile
+├── include
+│   ├── app
+│   │   ├── CraneManager.hpp
+│   │   ├── CraneState.hpp
+│   │   ├── LCPSStateMachine.hpp
+│   │   └── StateManager.hpp
+│   ├── common
+│   │   ├── adaptor
+│   │   ├── arith
+│   │   ├── audio
+│   │   ├── basic
+│   │   ├── collision
+│   │   ├── core
+│   │   ├── filter
+│   │   ├── lic
+│   │   ├── lidar
+│   │   ├── log
+│   │   ├── mmcv
+│   │   ├── obstacle
+│   │   ├── pcl
+│   │   ├── policy
+│   │   ├── projection
+│   │   ├── rapidjson
+│   │   ├── runtime
+│   │   ├── serialization
+│   │   ├── simpleWeb
+│   │   ├── transform
+│   │   ├── util
+│   │   └── web
+│   ├── detector
+│   │   └── BaseDetector.hpp
+│   ├── management
+│   │   ├── BaseManager.hpp
+│   │   ├── DetectorManager.hpp
+│   │   ├── PLCManager.hpp
+│   │   ├── SensorManager.hpp
+│   │   ├── ServiceManager.hpp
+│   │   └── TOSManager.hpp
+│   ├── plc
+│   │   ├── BasePLC.hpp
+│   │   ├── MMDevicesInfo.hpp
+│   │   ├── MMGraphStep.hpp
+│   │   ├── MMInfoBits.hpp
+│   │   ├── MMOpsCmd.hpp
+│   │   ├── MMPLCData.hpp
+│   │   ├── MMSafety.hpp
+│   │   └── MMStatus.hpp
+│   ├── quanergy -> ../thirdparty/quanergy/include
+│   ├── sdk
+│   │   └── MMCrane_sdk.hpp
+│   ├── sensor
+│   │   └── BaseSensor.hpp
+│   ├── service
+│   │   └── BaseService.hpp
+│   ├── tools
+│   │   └── common.hpp
+│   └── tos
+│       ├── BaseTOS.hpp
+│       ├── MMIECSDef.hpp
+│       ├── MMPLCInfo.hpp
+│       ├── MMSwitchInfo.hpp
+│       ├── MMTOSInfo.hpp
+│       └── MMTOSRecord.hpp
+├── install-completion.sh
+├── lib
+│   ├── libdarknet.so
+│   ├── libdeepsort.so
+│   ├── libhdicoordencrypt.so
+│   ├── libmm_property_collision.so
+│   ├── libmm_property_collision.so.2.1.0
+│   ├── libmm_property_projection.so
+│   ├── libmm_property_projection.so.2.0.0
+│   ├── libmsc.so
+│   ├── libPandarGeneralSDK.so
+│   ├── libquanergy_client.so
+│   ├── libsnap7.so
+│   ├── lib.tar.gz
+│   ├── libyolotrt.so
+│   ├── libyolov8Seg.so
+│   └── version.txt
+├── patch
+│   ├── 0001-patch-1-x-perf-optimize-compile-script-performance-a.patch
+│   ├── 0002-patch-2-x-refactor-refactor-compileFull.sh-for-impro.patch
+│   ├── 0003-patch-3-x-refactor-add-selective-module-compilation-.patch
+│   ├── 0004-patch-4-x-refactor-add-YAML-config-file-support-for-.patch
+│   ├── 0005-patch-5-x-refactor-scripts-Add-shell-autocompletion-.patch
+│   ├── 0006-patch-6-x-refactor-optimize-CMake-build-system-struc.patch
+│   ├── 0007-patch-7-x-refactor-refactor-detector-module-manageme.patch
+│   ├── 0008-patch-8-x-refactor-integrate-ccache-and-ninja-for-fa.patch
+│   └── perception
+│       └── 0001-refactor-module-adapt-aivCollisionDetector-to-refact.patch
+├── project.config
+├── project.info
+├── README_build_system.md
+├── README.md
+├── scripts
+│   ├── analysetools
+│   │   ├── analyze.py
+│   │   ├── compensation.yaml
+│   │   ├── getOffsets.py
+│   │   ├── offset.yaml
+│   │   ├── showLoadTest.py
+│   │   └── yard_map.yaml
+│   ├── analysisOfDoor
+│   │   ├── readLine_yield.py
+│   │   └── smalldoor_analize.py
+│   ├── bin
+│   │   ├── autaneService.sh
+│   │   ├── autorun.sh
+│   │   ├── checkGitDiff.sh
+│   │   ├── crane.sh
+│   │   ├── diskCleaner.sh
+│   │   ├── ecsTransceiver.sh
+│   │   ├── gitadd.sh
+│   │   ├── huaweiRebootSwitchPortPOE.sh
+│   │   ├── huaweiSwitchGetPort.sh
+│   │   ├── huaweiSwitchPOE.sh
+│   │   ├── iCraneMonitor.sh
+│   │   ├── keeplinkRebootSwitchPortPOE.sh
+│   │   ├── keeplinkSwitchGetPort.sh
+│   │   ├── keeplinkSwitchPOE.sh
+│   │   ├── monitorGNSS.py
+│   │   ├── networkMonitor.sh
+│   │   ├── oil-electric_switch.sh
+│   │   ├── parseBacktrace.sh
+│   │   ├── rebootSwitchTool
+│   │   ├── rebuildYaml.py
+│   │   ├── rebuildYamlV2.py
+│   │   ├── reformatYamlAll.py
+│   │   ├── reformatYamlSingle.py
+│   │   ├── runAllUnitTests.sh
+│   │   ├── switchGNSS.py
+│   │   ├── toolkit
+│   │   ├── topCraneMonitor.sh
+│   │   └── upsMonitor.py
+│   ├── binaryDeployAll.sh
+│   ├── binaryDeploy.sh
+│   ├── binaryDeployV2.sh
+│   ├── binaryMultiDeployV2.sh
+│   ├── commitLibPackage.sh
+│   ├── complete
+│   │   └── compile-completion.sh
+│   ├── createLibPackage.sh
+│   ├── delRedundancyLib.py
+│   ├── diskDetail.py
+│   ├── diskMonitor.py
+│   ├── env.sh
+│   ├── iCraneRestart.py
+│   ├── incrementalDeploy.sh
+│   ├── Jenkins.sh
+│   ├── offlineDataTest.sh
+│   ├── prepare_simulation.py
+│   ├── util
+│   │   ├── coder.sh
+│   │   ├── color.sh
+│   │   ├── listGantries.sh
+│   │   ├── log.sh
+│   │   ├── sync.sh
+│   │   └── timer.sh
+│   └── versionCreate.sh
+├── server
+│   ├── CMakeLists.txt
+│   ├── curr -> mw1
+│   ├── mw1
+│   │   ├── CMakeLists.txt
+│   │   ├── http_iCrane.cpp
+│   │   ├── http_iCrane.hpp
+│   │   ├── LICENSE
+│   │   └── README.md
+│   ├── my2
+│   │   ├── CMakeLists.txt
+│   │   ├── http_iCrane.cpp
+│   │   ├── http_iCrane.hpp
+│   │   ├── Include
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── ServerComm.cpp
+│   │   ├── ServerComm.hpp
+│   │   ├── SocketServer.cpp
+│   │   └── SocketServer.hpp
+│   ├── perc
+│   │   ├── CMakeLists.txt
+│   │   ├── crypto.hpp
+│   │   ├── doc
+│   │   ├── http_iCrane.cpp
+│   │   ├── http_iCrane.hpp
+│   │   ├── Include
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── tests
+│   │   └── web
+│   └── tests
+│       ├── CMakeLists.txt
+│       ├── crypto_test.cpp
+│       ├── io_test.cpp
+│       ├── parse_test.cpp
+│       └── status_code_test.cpp
+├── settings
+│   ├── atl
+│   │   ├── 223
+│   │   ├── 225
+│   │   ├── 235
+│   │   └── common
+│   ├── common
+│   │   ├── detector
+│   │   ├── plc
+│   │   ├── sensor
+│   │   ├── service
+│   │   ├── tts
+│   │   └── webEditing
+│   ├── mt3
+│   │   ├── 82
+│   │   ├── 83
+│   │   └── common
+│   ├── mw1
+│   │   ├── 229
+│   │   ├── 231
+│   │   ├── 232
+│   │   ├── 237
+│   │   ├── 238
+│   │   ├── 243
+│   │   ├── 252
+│   │   ├── 253
+│   │   ├── 254
+│   │   ├── 255
+│   │   └── common
+│   ├── my2
+│   │   ├── 261
+│   │   ├── 262
+│   │   ├── 263
+│   │   ├── 264
+│   │   ├── 265
+│   │   ├── 266
+│   │   ├── 270
+│   │   ├── 271
+│   │   ├── 272
+│   │   ├── 273
+│   │   ├── 274
+│   │   ├── 275
+│   │   ├── 276
+│   │   ├── 277
+│   │   ├── 278
+│   │   └── common
+│   ├── perc
+│   │   ├── 201
+│   │   └── common
+│   └── sil
+│       ├── 232
+│       ├── 252
+│       ├── 253
+│       └── common
+├── src
+│   ├── app
+│   │   ├── CraneManager.cpp
+│   │   ├── CraneState.cpp
+│   │   ├── LCPSStateMachine.cpp
+│   │   └── StateManager.cpp
+│   ├── common
+│   │   ├── adaptor
+│   │   ├── arith
+│   │   ├── audio
+│   │   ├── CMakeLists.txt
+│   │   ├── collision
+│   │   ├── core
+│   │   ├── filter
+│   │   ├── lic
+│   │   ├── lidar
+│   │   ├── log
+│   │   ├── mmcv
+│   │   ├── obstacle
+│   │   ├── pcl
+│   │   ├── policy
+│   │   ├── projection
+│   │   ├── runtime
+│   │   ├── SetProjectName.cmake
+│   │   ├── transform
+│   │   ├── util
+│   │   └── web
+│   ├── detector
+│   │   ├── CDetector.cpp
+│   │   ├── CDetector.hpp
+│   │   ├── CDetectorRegister.hpp
+│   │   ├── CMakeLists.txt
+│   │   ├── perception
+│   │   ├── SetProjectName.cmake
+│   │   └── vision
+│   ├── management
+│   │   ├── BaseManager.cpp
+│   │   ├── DetectorManager.cpp
+│   │   ├── PLCManager.cpp
+│   │   ├── SensorManager.cpp
+│   │   ├── ServiceManager.cpp
+│   │   └── TOSManager.cpp
+│   ├── plc
+│   │   ├── atl
+│   │   ├── BasePLC.cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── common
+│   │   ├── CPLC.cpp
+│   │   ├── CPLC.hpp
+│   │   ├── CPLCRegister.hpp
+│   │   ├── mt3
+│   │   ├── mw1
+│   │   ├── my2
+│   │   ├── perc
+│   │   ├── printer
+│   │   ├── SetProjectName.cmake
+│   │   └── sil
+│   ├── sdk
+│   │   ├── CMakeLists.txt
+│   │   ├── MMCrane_sdk.cpp
+│   │   └── SetProjectName.cmake
+│   ├── sensor
+│   │   ├── CMakeLists.txt
+│   │   ├── CSensor.cpp
+│   │   ├── CSensor.hpp
+│   │   ├── CSensorRegister.hpp
+│   │   ├── GNSS
+│   │   ├── IMU
+│   │   ├── IPCam
+│   │   ├── lidarHesai
+│   │   ├── lidarLivox
+│   │   ├── lidarLivoxs
+│   │   ├── lidarPavo
+│   │   ├── lidarQ
+│   │   ├── lidarR
+│   │   └── SetProjectName.cmake
+│   ├── service
+│   │   ├── aivGuideService
+│   │   ├── antiHoistService
+│   │   ├── antiTruckLiftService
+│   │   ├── camImgSaveService
+│   │   ├── camTruckLandingService
+│   │   ├── CMakeLists.txt
+│   │   ├── containerIdRecognizer
+│   │   ├── CPS
+│   │   ├── CService.cpp
+│   │   ├── CService.hpp
+│   │   ├── CServiceRegister.hpp
+│   │   ├── cyLayerHeightService
+│   │   ├── cymObsService
+│   │   ├── DetectorKicker
+│   │   ├── EncoderKFChecker
+│   │   ├── ETDynLandingService
+│   │   ├── gantryCollisionAvoid
+│   │   ├── gantryLaneKeeper
+│   │   ├── gantryLocator
+│   │   ├── ITLandingService
+│   │   ├── LCPS
+│   │   ├── LCPService
+│   │   ├── loadLandCymService
+│   │   ├── loadLandEtService
+│   │   ├── percTruckGuideService
+│   │   ├── percTruckInfoService
+│   │   ├── personDetectService
+│   │   ├── SetProjectName.cmake
+│   │   ├── spreaderPoseEstimator
+│   │   ├── spreaderSafetyHandler
+│   │   ├── truckDynamicLoadService
+│   │   ├── truckIdRecognizer
+│   │   └── truckInfoService
+│   └── tos
+│       ├── BaseTOS.cpp
+│       ├── CMakeLists.txt
+│       ├── CTOS.cpp
+│       ├── CTOS.hpp
+│       ├── CTOSRegister.hpp
+│       ├── mt3
+│       ├── mw1
+│       ├── my2
+│       ├── perc
+│       ├── SetProjectName.cmake
+│       └── sil
+├── src_tree.txt
+├── test
+│   ├── cmake
+│   │   ├── googletest.cmake
+│   │   └── googletest-download.cmake
+│   ├── CMakeLists.txt
+│   ├── func
+│   │   ├── CMakeLists.txt
+│   │   ├── cntrLockHoleDetTest
+│   │   ├── FilterTest
+│   │   ├── FitLineTest
+│   │   ├── localRCSTest
+│   │   └── PVKFilterTest
+│   ├── googletest
+│   │   ├── appveyor.yml
+│   │   ├── CMakeLists.txt
+│   │   ├── googlemock
+│   │   ├── googletest
+│   │   ├── README.md
+│   │   └── travis.sh
+│   ├── GtestExample
+│   │   ├── CMakeLists.txt
+│   │   ├── sample1.cc
+│   │   ├── sample1.h
+│   │   └── sample1_unittest.cc
+│   ├── GtestSample
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   ├── LegoDetectorTest
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   ├── library
+│   │   ├── CMakeLists.txt
+│   │   ├── test_container_lidar_locator.cpp
+│   │   └── test_container_parser.cpp
+│   ├── LoamDetectorTest
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   ├── MMDetectorTest
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   ├── MMDeviceTest
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   ├── MMLidarTest
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   ├── MMPostFusionTest
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   ├── MMSocketTest
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   ├── MMTYAETest
+│   │   ├── CMakeLists.txt
+│   │   └── TYAETest.cpp
+│   ├── MMWebServer
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   ├── ObstacleTest
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   ├── Polygon2DTest
+│   │   ├── CMakeLists.txt
+│   │   ├── opencvdraw.cpp
+│   │   ├── opencvdraw.h
+│   │   ├── PointInPolygonTest.cpp
+│   │   └── Polygon2DTest.cpp
+│   ├── SetProjectName.cmake
+│   ├── simtest
+│   │   ├── cases
+│   │   ├── simtest.sh
+│   │   └── testall.sh
+│   └── unit
+│       ├── AntiHoistServiceTest
+│       ├── AntiTruckLiftServiceTest
+│       ├── CMakeLists.txt
+│       ├── compensatorTest
+│       ├── CPSTest
+│       ├── CYHeightTest
+│       ├── CymObsServiceTest
+│       ├── deepSortTrackerTest
+│       ├── gantryCamSafeTest
+│       ├── GCPTest
+│       ├── hardCompensationTest
+│       ├── IMUDetectorTest
+│       ├── LCPServiceTest
+│       ├── LCPSTest
+│       ├── lidarAntiLiftTest
+│       ├── lidarCheckerTest
+│       ├── lidarCntrLocatorTest
+│       ├── lidarCYMObsDetectorTest
+│       ├── lidarETLandingDetectorTest
+│       ├── lidarITDynaCrashCheckTest
+│       ├── lidarITLandingDetectorTest
+│       ├── lidarITLocatorTest
+│       ├── lidarLaneCntrDetectorTest
+│       ├── linearCntrDetectorTest
+│       ├── linearITDetectorTest
+│       ├── linearITSafetyTest
+│       ├── lineParserTest
+│       ├── mapTruckLocatorTest
+│       ├── NLOSpreaderDetectorTest
+│       ├── OBBTest
+│       ├── obstacleParserTest
+│       ├── PCDTest
+│       ├── pointCloudUtilTest
+│       ├── projectionTest
+│       ├── readme.txt
+│       ├── SDSTest
+│       ├── SpreaderSafetyHandlerTest
+│       ├── sprPoseTest
+│       ├── TOSTest
+│       ├── truckDynLoadtTest
+│       ├── TruckLiftDetectorTest
+│       ├── unloadTruckCntrPosTest
+│       └── visualHoistDetectorTest
+├── thirdparty
+│   ├── camport3
+│   │   ├── Doc
+│   │   ├── include
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   └── sample
+│   ├── ceres-solver
+│   │   ├── bazel
+│   │   ├── BUILD
+│   │   ├── cmake
+│   │   ├── CMakeLists.txt
+│   │   ├── config
+│   │   ├── CONTRIBUTING.md
+│   │   ├── data
+│   │   ├── docs
+│   │   ├── examples
+│   │   ├── include
+│   │   ├── internal
+│   │   ├── LICENSE
+│   │   ├── package.xml
+│   │   ├── README.md
+│   │   ├── scripts
+│   │   ├── travis
+│   │   └── WORKSPACE
+│   ├── darknet
+│   │   ├── 3rdparty
+│   │   ├── build.ps1
+│   │   ├── build.sh
+│   │   ├── cmake
+│   │   ├── CMakeLists.txt
+│   │   ├── DarknetConfig.cmake.in
+│   │   ├── darknet_images.py
+│   │   ├── darknet.py
+│   │   ├── darknet_video.py
+│   │   ├── image_yolov3.sh
+│   │   ├── image_yolov4.sh
+│   │   ├── include
+│   │   ├── json_mjpeg_streams.sh
+│   │   ├── LICENSE
+│   │   ├── Makefile
+│   │   ├── net_cam_v3.sh
+│   │   ├── net_cam_v4.sh
+│   │   ├── README.md
+│   │   ├── results
+│   │   ├── scripts
+│   │   ├── src
+│   │   ├── vcpkg.json
+│   │   ├── video_yolov3.sh
+│   │   ├── video_yolov4.sh
+│   │   └── yolotrt
+│   ├── deepsort
+│   │   ├── CMakeLists.txt
+│   │   ├── include
+│   │   ├── onnx2engine.cpp
+│   │   ├── README.md
+│   │   └── src
+│   ├── eigen
+│   │   ├── bench
+│   │   ├── blas
+│   │   ├── cmake
+│   │   ├── CMakeLists.txt
+│   │   ├── COPYING.BSD
+│   │   ├── COPYING.GPL
+│   │   ├── COPYING.LGPL
+│   │   ├── COPYING.MINPACK
+│   │   ├── COPYING.MPL2
+│   │   ├── COPYING.README
+│   │   ├── CTestConfig.cmake
+│   │   ├── CTestCustom.cmake.in
+│   │   ├── debug
+│   │   ├── demos
+│   │   ├── doc
+│   │   ├── Eigen
+│   │   ├── eigen3.pc.in
+│   │   ├── failtest
+│   │   ├── INSTALL
+│   │   ├── lapack
+│   │   ├── scripts
+│   │   ├── signature_of_eigen3_matrix_library
+│   │   ├── test
+│   │   └── unsupported
+│   ├── g2o
+│   │   ├── appveyor.yml
+│   │   ├── CMakeLists.txt
+│   │   ├── cmake_modules
+│   │   ├── config.h.in
+│   │   ├── doc
+│   │   ├── EXTERNAL
+│   │   ├── g2o
+│   │   ├── Makefile
+│   │   ├── README.md
+│   │   ├── script
+│   │   └── unit_test
+│   ├── glog
+│   │   ├── appveyor.yml
+│   │   ├── AUTHORS
+│   │   ├── bazel
+│   │   ├── BUILD.bazel
+│   │   ├── ChangeLog
+│   │   ├── cmake
+│   │   ├── CMakeLists.txt
+│   │   ├── CONTRIBUTORS
+│   │   ├── COPYING
+│   │   ├── Dockerfile.ubuntu.template
+│   │   ├── glog-config.cmake.in
+│   │   ├── glog-modules.cmake.in
+│   │   ├── libglog.pc.in
+│   │   ├── README.rst
+│   │   ├── src
+│   │   ├── toolchains
+│   │   └── WORKSPACE
+│   ├── gtsam
+│   │   ├── bitbucket-pipelines.yml
+│   │   ├── cmake
+│   │   ├── CMakeLists.txt
+│   │   ├── CppUnitLite
+│   │   ├── DEVELOP
+│   │   ├── doc
+│   │   ├── examples
+│   │   ├── gtsam
+│   │   ├── GTSAM-Concepts.md
+│   │   ├── gtsam_extra.cmake.in
+│   │   ├── gtsam.h
+│   │   ├── gtsampy.h
+│   │   ├── gtsam_unstable
+│   │   ├── INSTALL
+│   │   ├── LICENSE
+│   │   ├── LICENSE.BSD
+│   │   ├── makestats.sh
+│   │   ├── matlab
+│   │   ├── matlab.h
+│   │   ├── package_scripts
+│   │   ├── package.xml
+│   │   ├── python
+│   │   ├── README.md
+│   │   ├── tests
+│   │   ├── THANKS
+│   │   ├── timing
+│   │   ├── USAGE.md
+│   │   └── wrap
+│   ├── HesaiLidar_General_SDK
+│   │   ├── change notes.md
+│   │   ├── CMakeLists.txt
+│   │   ├── include
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── src
+│   │   └── test
+│   ├── Livox2_SDK
+│   │   ├── build.sh
+│   │   ├── CMakeLists.txt
+│   │   ├── CMakeLists.txt.shared
+│   │   ├── CMakeLists.txt.static
+│   │   ├── livox_lidar_sdk
+│   │   ├── livox_sdk
+│   │   ├── livox_sdk_common
+│   │   ├── livox_sdk_vehicle
+│   │   └── sample
+│   ├── Livox-SDK
+│   │   ├── CMakeLists.txt
+│   │   ├── doc
+│   │   ├── Doxyfile
+│   │   ├── LICENSE.txt
+│   │   ├── README_CN.md
+│   │   ├── README.md
+│   │   ├── sample
+│   │   ├── sample_cc
+│   │   └── sdk_core
+│   ├── matplotlib-cpp
+│   │   ├── cmake
+│   │   ├── CMakeLists.txt
+│   │   ├── contrib
+│   │   ├── examples
+│   │   ├── LICENSE
+│   │   ├── LICENSE.matplotlib
+│   │   ├── matplotlibcpp.h
+│   │   └── README.md
+│   ├── Pangolin
+│   │   ├── appveyor.yml
+│   │   ├── CMakeLists.txt
+│   │   ├── CMakeModules
+│   │   ├── cmake_uninstall.cmake.in
+│   │   ├── examples
+│   │   ├── external
+│   │   ├── include
+│   │   ├── LICENCE
+│   │   ├── package.xml
+│   │   ├── pyexamples
+│   │   ├── README.md
+│   │   ├── src
+│   │   ├── test
+│   │   └── tools
+│   ├── pcl
+│   │   ├── 2d
+│   │   ├── apps
+│   │   ├── AUTHORS.txt
+│   │   ├── CHANGES.md
+│   │   ├── cmake
+│   │   ├── CMakeLists.txt
+│   │   ├── common
+│   │   ├── CONTRIBUTING.md
+│   │   ├── cuda
+│   │   ├── doc
+│   │   ├── examples
+│   │   ├── features
+│   │   ├── filters
+│   │   ├── geometry
+│   │   ├── gpu
+│   │   ├── io
+│   │   ├── kdtree
+│   │   ├── keypoints
+│   │   ├── LICENSE.txt
+│   │   ├── ml
+│   │   ├── octree
+│   │   ├── outofcore
+│   │   ├── PCLConfig.cmake.in
+│   │   ├── pcl_config.h.in
+│   │   ├── PCLConfigVersion.cmake.in
+│   │   ├── pcl.png
+│   │   ├── people
+│   │   ├── README.md
+│   │   ├── recognition
+│   │   ├── registration
+│   │   ├── sample_consensus
+│   │   ├── search
+│   │   ├── segmentation
+│   │   ├── simulation
+│   │   ├── stereo
+│   │   ├── surface
+│   │   ├── test
+│   │   ├── tools
+│   │   ├── tracking
+│   │   └── visualization
+│   ├── quanergy
+│   │   ├── apps
+│   │   ├── cmake
+│   │   ├── CMakeLists.txt
+│   │   ├── debian
+│   │   ├── doxyfile.in
+│   │   ├── include
+│   │   ├── LICENSE
+│   │   ├── readme
+│   │   ├── README.md
+│   │   ├── settings
+│   │   ├── src
+│   │   └── test
+│   ├── Sophus
+│   │   ├── CMakeLists.txt
+│   │   ├── cmake_modules
+│   │   ├── README
+│   │   ├── sophus
+│   │   └── SophusConfig.cmake.in
+│   ├── tts
+│   │   ├── doc
+│   │   ├── include
+│   │   ├── README
+│   │   ├── release.txt
+│   │   └── samples
+│   ├── yaml-cpp
+│   │   ├── CMakeLists.txt
+│   │   ├── CONTRIBUTING.md
+│   │   ├── include
+│   │   ├── install.txt
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── src
+│   │   ├── test
+│   │   ├── util
+│   │   ├── yaml-cpp-config.cmake.in
+│   │   ├── yaml-cpp-config-version.cmake.in
+│   │   └── yaml-cpp.pc.cmake
+│   └── yolov8
+│       ├── CMakeLists.txt
+│       ├── coco.txt
+│       ├── gen_engine.cpp
+│       ├── gen_wts.py
+│       ├── groud.txt
+│       ├── images
+│       ├── include
+│       ├── plugin
+│       ├── README.md
+│       ├── src
+│       ├── yolov8_seg_app.cpp
+│       ├── yolov8_seg.cpp
+│       └── yolov8_seg.h
+└── tool
+    ├── autaneService
+    │   ├── AutaneBaseService.hpp
+    │   ├── AutaneService.cpp
+    │   ├── autoCompensation
+    │   ├── CMakeLists.txt
+    │   ├── crashReport
+    │   ├── fileViewer
+    │   ├── ServiceFactory.cpp
+    │   ├── ServiceFactory.hpp
+    │   ├── SetProjectName.cmake
+    │   └── yamlConfig
+    ├── autoBuildRules
+    │   ├── AutoBuildRulesYaml.cpp
+    │   └── CMakeLists.txt
+    ├── bayPositionCalibrate
+    │   ├── BayPositionCalibrate.cpp
+    │   └── CMakeLists.txt
+    ├── CalculateTools
+    │   └── CalculateRow
+    ├── CalibDataCapture
+    │   ├── CMakeLists.txt
+    │   ├── include
+    │   └── src
+    ├── Calibrate
+    │   ├── CameraCaliTool
+    │   ├── GantryCollCalibrate
+    │   ├── LidarCalibrTool
+    │   ├── LidarCaliGantryGround
+    │   ├── LidarCameraCalibByLine
+    │   └── LidarCameraCaliTool
+    ├── caliToUniform
+    │   ├── CaliToUniform.cpp
+    │   └── CMakeLists.txt
+    ├── CameraDebugTool
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── cameraIntrinsicCalibrate
+    │   ├── CameraIntrinsicCalibrate.cpp
+    │   └── CMakeLists.txt
+    ├── CamLandMarkerDetectorTool
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── CaptureTool
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── checkLidar
+    │   ├── CMakeLists.txt
+    │   └── LidarInstallationCheck.cpp
+    ├── CMakeLists.txt
+    ├── COD_LCPS
+    │   ├── CMakeLists.txt
+    │   └── CODLCPS.cpp
+    ├── CPS
+    │   ├── CMakeLists.txt
+    │   └── CPS.cpp
+    ├── Daemon
+    │   ├── CMakeLists.txt
+    │   ├── config
+    │   ├── include
+    │   ├── src
+    │   └── test
+    ├── EstimatorTool
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── FeatureTracker
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── gantryLidarCalib
+    │   ├── CMakeLists.txt
+    │   ├── gantryLidarCalib.cpp
+    │   └── gantryLidarCalib_new.cpp
+    ├── gantryVisionCollCalibrate
+    │   ├── CMakeLists.txt
+    │   └── GantryVisionCollCalibrate.cpp
+    ├── generateTestData
+    │   ├── CMakeLists.txt
+    │   └── generateTestData.cpp
+    ├── getPointTrans
+    │   ├── CMakeLists.txt
+    │   └── GetTransform.cpp
+    ├── gnss
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── HandCalibration
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── hesaiCali
+    │   ├── CMakeLists.txt
+    │   └── HesaiCali.cpp
+    ├── ImageTool
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── InstallationVerification
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── KFilter
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── laneDetectorCalibrate
+    │   ├── CMakeLists.txt
+    │   └── LaneDetectorCalibrate.cpp
+    ├── LCPS
+    │   ├── CMakeLists.txt
+    │   └── LCPS.cpp
+    ├── licTool
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── LiDAR
+    │   ├── PCDFileBrowser
+    │   └── PointLaneDetector
+    ├── LidarCalibrateCalculate
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── LidarCalibrateRecord
+    │   ├── CMakeLists.txt
+    │   ├── README
+    │   └── src
+    ├── LidarDebugTool
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── LidarICP
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── LidarIntensityViewer
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── LidarParsePlane
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── LLEC
+    │   ├── CMakeLists.txt
+    │   └── LLEC.cpp
+    ├── LocatePoint
+    │   ├── CMakeLists.txt
+    │   ├── data
+    │   └── src
+    ├── manualCali
+    │   ├── CMakeLists.txt
+    │   └── MannualCali.cpp
+    ├── mergeCloud
+    │   ├── CMakeLists.txt
+    │   └── MergeCloud.cpp
+    ├── NLOS
+    │   ├── CMakeLists.txt
+    │   └── NLOS.cpp
+    ├── OpenCoreDump
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── Optimizer
+    │   ├── CMakeLists.txt
+    │   ├── cmake_modules
+    │   └── src
+    ├── ParsePlane
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── PLCTool
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── PoseConfirmTool
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── PoseFromVP
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── publish
+    │   ├── CMakeLists.txt
+    │   └── Publish.cpp
+    ├── PublishObs
+    │   ├── CMakeLists.txt
+    │   └── PublishObs.cpp
+    ├── remoteConfigService
+    │   ├── CMakeLists.txt
+    │   ├── http_yaml.cpp
+    │   ├── http_yaml.hpp
+    │   ├── Include
+    │   ├── LICENSE
+    │   ├── README.md
+    │   ├── tests
+    │   ├── yamlAPIs.cpp
+    │   └── yamlAPIs.hpp
+    ├── roiCloud
+    │   ├── CMakeLists.txt
+    │   └── RoiCloud.cpp
+    ├── rotateTrans
+    │   ├── CMakeLists.txt
+    │   └── RotateTrans.cpp
+    ├── S1500
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── SCHD
+    │   ├── CMakeLists.txt
+    │   └── SCHD.cpp
+    ├── SetProjectName.cmake
+    ├── showClouds
+    │   ├── CMakeLists.txt
+    │   └── showClouds.cpp
+    ├── simpleMergeCloud
+    │   ├── CMakeLists.txt
+    │   └── SimpleMergeCloud.cpp
+    ├── SLAM
+    │   └── Cartographer
+    ├── spreaderDetector
+    │   ├── CMakeLists.txt
+    │   ├── config.yaml
+    │   └── spreaderDetector.cpp
+    ├── SwitchTool
+    │   ├── CMakeLists.txt
+    │   └── src
+    ├── truckSideTool
+    │   ├── calcRollPitch.py
+    │   ├── CMakeLists.txt
+    │   ├── data
+    │   └── truckSideTool.cpp
+    ├── WebInterface
+    │   ├── CMakeLists.txt
+    │   └── src
+    └── WGS84
+        ├── CMakeLists.txt
+        └── src
+
+560 directories, 554 files
