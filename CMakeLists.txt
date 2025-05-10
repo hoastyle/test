@@ -190,6 +190,55 @@ link_directories(/usr/local/lib)
 find_package(cppzmq)
 
 # ==============================================================================
+# 预编译头文件配置
+# ==============================================================================
+option(USE_PCH "Use precompiled headers" ON)
+
+if(USE_PCH AND CMAKE_VERSION VERSION_GREATER_EQUAL 3.16)
+    message(STATUS "启用预编译头文件支持")
+
+    # 设置PCH基础路径
+    set(PCH_BASE_DIR "${CMAKE_SOURCE_DIR}/include")
+
+    # 全局PCH
+    if(EXISTS "${PCH_BASE_DIR}/common_pch.hpp")
+        add_library(common_pch INTERFACE)
+        target_precompile_headers(common_pch INTERFACE "${PCH_BASE_DIR}/common_pch.hpp")
+        message(STATUS "创建全局PCH: common_pch")
+    endif()
+
+    # Service模块PCH
+    if(EXISTS "${PCH_BASE_DIR}/service/service_pch.hpp")
+        add_library(service_pch INTERFACE)
+        target_precompile_headers(service_pch INTERFACE "${PCH_BASE_DIR}/service/service_pch.hpp")
+        message(STATUS "创建服务模块PCH: service_pch")
+    endif()
+
+    # Detector模块PCH
+    if(EXISTS "${PCH_BASE_DIR}/detector/detector_pch.hpp")
+        add_library(detector_pch INTERFACE)
+        target_precompile_headers(detector_pch INTERFACE "${PCH_BASE_DIR}/detector/detector_pch.hpp")
+        message(STATUS "创建检测器PCH: detector_pch")
+    endif()
+
+    # Perception子模块PCH
+    if(EXISTS "${PCH_BASE_DIR}/detector/perception/perception_pch.hpp")
+        add_library(detector_perception_pch INTERFACE)
+        target_precompile_headers(detector_perception_pch INTERFACE
+            "${PCH_BASE_DIR}/detector/perception/perception_pch.hpp")
+        message(STATUS "创建感知模块PCH: detector_perception_pch")
+    endif()
+
+    # Vision子模块PCH
+    if(EXISTS "${PCH_BASE_DIR}/detector/vision/vision_pch.hpp")
+        add_library(detector_vision_pch INTERFACE)
+        target_precompile_headers(detector_vision_pch INTERFACE
+            "${PCH_BASE_DIR}/detector/vision/vision_pch.hpp")
+        message(STATUS "创建视觉模块PCH: detector_vision_pch")
+    endif()
+endif()
+
+# ==============================================================================
 # 路径配置
 # ==============================================================================
 
@@ -210,7 +259,6 @@ set(MM_MATPLOT_INC ${MM_ROOT}/thirdparty/matplotlib-cpp)
 
 # 系统库
 set(MM_SDK_LIB mm_sdk)
-set(MM_COMMON_LIB mm_common)
 set(JSONCPP_LIB "/usr/lib/x86_64-linux-gnu/libjsoncpp.so")
 
 # Livox SDK 库

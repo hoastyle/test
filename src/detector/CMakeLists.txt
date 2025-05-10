@@ -4,6 +4,44 @@ cmake_minimum_required(VERSION 3.16)
 include(${CMAKE_SOURCE_DIR}/cmake/ModuleUtil.cmake)
 
 # ==============================================================================
+# PCH应用（新增部分）
+# ==============================================================================
+
+# 应用PCH支持 - 集中管理
+if(USE_PCH AND CMAKE_VERSION VERSION_GREATER_EQUAL 3.16)
+    message(STATUS "为detector模块应用PCH支持")
+
+    # 为每个模块应用适当的PCH
+    foreach(target IN LISTS ADDED_MODULES)
+        # 解析模块类型和名称
+        string(REPLACE "/" ";" target_parts ${target})
+        list(GET target_parts 0 module_type)
+        list(GET target_parts 1 module_name)
+
+        # 构建目标完整名称
+        set(target_name mm_detector_${module_name})
+
+        # 检查目标是否存在
+        if(TARGET ${target_name})
+            # 根据模块类型应用适当的PCH
+            if(module_type STREQUAL "perception" AND TARGET detector_perception_pch)
+                target_link_libraries(${target_name} PRIVATE detector_perception_pch)
+                message(STATUS "  ${target_name} 使用 perception PCH")
+            elseif(module_type STREQUAL "vision" AND TARGET detector_vision_pch)
+                target_link_libraries(${target_name} PRIVATE detector_vision_pch)
+                message(STATUS "  ${target_name} 使用 vision PCH")
+            elseif(TARGET detector_pch)
+                target_link_libraries(${target_name} PRIVATE detector_pch)
+                message(STATUS "  ${target_name} 使用 detector PCH")
+            elseif(TARGET common_pch)
+                target_link_libraries(${target_name} PRIVATE common_pch)
+                message(STATUS "  ${target_name} 使用 common PCH")
+            endif()
+        endif()
+    endforeach()
+endif()
+
+# ==============================================================================
 # 模块选择控制
 # ==============================================================================
 
