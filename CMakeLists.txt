@@ -193,10 +193,8 @@ find_package(cppzmq)
 # 预编译头文件配置
 # ==============================================================================
 option(USE_PCH "Use precompiled headers" ON)
-
 if(USE_PCH AND CMAKE_VERSION VERSION_GREATER_EQUAL 3.16)
     message(STATUS "启用预编译头文件支持")
-
     # 设置PCH基础路径
     set(PCH_BASE_DIR "${CMAKE_SOURCE_DIR}/include")
 
@@ -211,6 +209,10 @@ if(USE_PCH AND CMAKE_VERSION VERSION_GREATER_EQUAL 3.16)
     if(EXISTS "${PCH_BASE_DIR}/service/service_pch.hpp")
         add_library(service_pch INTERFACE)
         target_precompile_headers(service_pch INTERFACE "${PCH_BASE_DIR}/service/service_pch.hpp")
+        # 建立与common_pch的依赖关系
+        if(TARGET common_pch)
+            target_link_libraries(service_pch INTERFACE common_pch)
+        endif()
         message(STATUS "创建服务模块PCH: service_pch")
     endif()
 
@@ -218,6 +220,10 @@ if(USE_PCH AND CMAKE_VERSION VERSION_GREATER_EQUAL 3.16)
     if(EXISTS "${PCH_BASE_DIR}/detector/detector_pch.hpp")
         add_library(detector_pch INTERFACE)
         target_precompile_headers(detector_pch INTERFACE "${PCH_BASE_DIR}/detector/detector_pch.hpp")
+        # 建立与common_pch的依赖关系
+        if(TARGET common_pch)
+            target_link_libraries(detector_pch INTERFACE common_pch)
+        endif()
         message(STATUS "创建检测器PCH: detector_pch")
     endif()
 
@@ -226,6 +232,10 @@ if(USE_PCH AND CMAKE_VERSION VERSION_GREATER_EQUAL 3.16)
         add_library(detector_perception_pch INTERFACE)
         target_precompile_headers(detector_perception_pch INTERFACE
             "${PCH_BASE_DIR}/detector/perception/perception_pch.hpp")
+        # 建立与detector_pch的依赖关系
+        if(TARGET detector_pch)
+            target_link_libraries(detector_perception_pch INTERFACE detector_pch)
+        endif()
         message(STATUS "创建感知模块PCH: detector_perception_pch")
     endif()
 
@@ -234,6 +244,10 @@ if(USE_PCH AND CMAKE_VERSION VERSION_GREATER_EQUAL 3.16)
         add_library(detector_vision_pch INTERFACE)
         target_precompile_headers(detector_vision_pch INTERFACE
             "${PCH_BASE_DIR}/detector/vision/vision_pch.hpp")
+        # 建立与detector_pch的依赖关系
+        if(TARGET detector_pch)
+            target_link_libraries(detector_vision_pch INTERFACE detector_pch)
+        endif()
         message(STATUS "创建视觉模块PCH: detector_vision_pch")
     endif()
 endif()

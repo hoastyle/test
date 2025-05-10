@@ -1,7 +1,17 @@
 # 模块配置工具函数
 
 # 包含库配置
-include(${MM_ROOT}/build/Debug/install/share/cmake/mm_common/mm_common_config.cmake OPTIONAL)
+if(CMAKE_BUILD_TYPE)
+    include(${MM_ROOT}/build/${CMAKE_BUILD_TYPE}/install/share/cmake/mm_common/mm_common_config.cmake OPTIONAL)
+else()
+    # 尝试多种可能的路径
+    foreach(BUILD_TYPE "Debug" "Release")
+        if(EXISTS "${MM_ROOT}/build/${BUILD_TYPE}/install/share/cmake/mm_common/mm_common_config.cmake")
+            include(${MM_ROOT}/build/${BUILD_TYPE}/install/share/cmake/mm_common/mm_common_config.cmake OPTIONAL)
+            break()
+        endif()
+    endforeach()
+endif()
 
 # 全局包含目录（供所有模块使用）
 set(MM_GLOBAL_INCLUDES
