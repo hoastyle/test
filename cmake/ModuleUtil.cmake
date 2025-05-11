@@ -13,6 +13,8 @@ else()
     endforeach()
 endif()
 
+set(CMAKE_LINK_DEPENDS_NO_SHARED TRUE)
+
 # 全局包含目录（供所有模块使用）
 set(MM_GLOBAL_INCLUDES
     ${OpenCV_INCLUDE_DIRS}

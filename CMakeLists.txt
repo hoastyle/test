@@ -43,6 +43,10 @@ if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_CLANG)
     # set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fuse-ld=gold") # or -fuse-ld=gold
 endif()
 
+# 在顶级CMakeLists.txt中
+set(CMAKE_PCH_INSTANTIATE_TEMPLATES ON)  # 启用模板实例化缓存
+set(CMAKE_UNITY_BUILD OFF)  # 禁用unity build以避免PCH冲突
+
 # ==============================================================================
 # 编译选项配置
 # ==============================================================================

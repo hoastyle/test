@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 3.16)
+add_plc_module()
+# include(../SetProjectName.cmake)
+#
+# include_directories(
+#   ${OpenCV_INCLUDE_DIRS}
+#   ${PCL_INCLUDE_DIRS}
+#   ${MM_ROOT}/include
+#   ${MM_ROOT}/src
+#   ${MM_QUANERGY_INC}
+#   ${MM_COMMON_INC})
+#
+# file(GLOB PROJECT_SRC *.cpp ../*.cpp)
+#
+# add_library(${PROJECT_NAME} SHARED
+#   ${PROJECT_SRC})
+#
+# target_link_libraries(${PROJECT_NAME}
+#   ${SNAP7_LIB}
+#   ${MM_COMMON_LIB})
+#
+# set(MAJOR 2)
+# set(MINOR 0)
+# set(PATCH 0)
+# add_definitions(-DMAJOR=${MAJOR} -DMINOR=${MINOR} -DPATCH=${PATCH})
+#
+# set_target_properties(${PROJECT_NAME} PROPERTIES
+#   VERSION ${MAJOR}.${MINOR}.${PATCH}
+#   SOVERSION ${MAJOR})
